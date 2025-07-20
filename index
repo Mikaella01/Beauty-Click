@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mika Beauty</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Mika Beauty</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Glow with Confidence ✨</h2>
+      <p>Shop beauty essentials and book pampering services</p>
+      <a href="shop.html" class="btn">Explore Products</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mika Beauty. All rights reserved.</p>
+  </footer>
+</body>
+</html>
