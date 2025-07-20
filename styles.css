@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background: #fff5f8;
+  color: #333;
+}
+
+header {
+  background: #ffcce0;
+  padding: 20px;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 10px;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: #ffeaf4;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #ff66a3;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.products, .services-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px;
+}
+
+.product-card, .service-card {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+}
+
+.contact-form {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 5px;
+}
+
+.contact-form label, .contact-form input, .contact-form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+footer {
+  background: #ffcce0;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+}
