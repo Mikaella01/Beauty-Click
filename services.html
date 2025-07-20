@@ -1,10 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Services - Beauty Click</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Additional styles just for the quiz */
+    #skin-quiz {
+      max-width: 500px;
+      margin: 40px auto;
+      background: #fff0f6;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(255, 102, 163, 0.4);
+      font-family: Arial, sans-serif;
+    }
+    #skin-quiz h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #d6336c;
+    }
+    #skin-quiz label {
+      display: block;
+      margin-bottom: 12px;
+      font-size: 1.1em;
+      cursor: pointer;
+    }
+    #skin-quiz input[type="checkbox"] {
+      margin-right: 10px;
+      transform: scale(1.2);
+      vertical-align: middle;
+    }
+    #skin-quiz button {
+      background-color: #ff66a3;
+      border: none;
+      color: white;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto 0 auto;
+      transition: background-color 0.3s ease;
+    }
+    #skin-quiz button:hover {
+      background-color: #d6336c;
+    }
+    #recommendations {
+      margin-top: 30px;
+      background: white;
+      padding: 15px 20px;
+      border-radius: 6px;
+      box-shadow: 0 0 6px rgba(255, 102, 163, 0.3);
+      font-size: 1.1em;
+      color: #333;
+    }
+    #recommendations h3 {
+      color: #ff66a3;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    #recommendations ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -18,21 +79,99 @@
   </header>
 
   <main>
-    <section class="services-list">
+    <!-- Your existing services could stay here -->
+    <section class="services-list" style="max-width:600px; margin: 30px auto;">
       <div class="service-card">
-        <h3>Facial Treatment</h3>
-        <p>45 minutes - $40</p>
+        <h3>Makeup Session</h3>
+        <p>1-hour glam look</p>
+        <p>$50.00</p>
       </div>
 
       <div class="service-card">
-        <h3>Makeup Session</h3>
-        <p>1 hour - $60</p>
+        <h3>Skincare Consultation</h3>
+        <p>Find what works for you</p>
+        <p>$30.00</p>
       </div>
+    </section>
+
+    <!-- Skin Concern Quiz -->
+    <section id="skin-quiz">
+      <h2>Tell Us Your Skin Concerns</h2>
+      <form id="skinForm">
+        <label><input type="checkbox" name="concerns" value="dry" /> Dry Skin</label>
+        <label><input type="checkbox" name="concerns" value="acne" /> Acne Prone</label>
+        <label><input type="checkbox" name="concerns" value="sensitive" /> Sensitive Skin</label>
+        <label><input type="checkbox" name="concerns" value="oily" /> Oily Skin</label>
+        <label><input type="checkbox" name="concerns" value="aging" /> Aging / Wrinkles</label>
+
+        <button type="submit">Get Recommendations</button>
+      </form>
+
+      <div id="recommendations"></div>
     </section>
   </main>
 
   <footer>
     <p>&copy; 2025 Beauty Click</p>
   </footer>
+
+  <script>
+    const productRecommendations = {
+      dry: [
+        "Hydrating Mist",
+        "Moisturizing Cream",
+        "Nourishing Serum"
+      ],
+      acne: [
+        "Acne Cleansing Foam",
+        "Salicylic Acid Toner",
+        "Oil Control Moisturizer"
+      ],
+      sensitive: [
+        "Calming Face Mask",
+        "Fragrance-Free Moisturizer",
+        "Gentle Cleanser"
+      ],
+      oily: [
+        "Mattifying Primer",
+        "Oil-Absorbing Lotion",
+        "Lightweight Sunscreen"
+      ],
+      aging: [
+        "Anti-Wrinkle Serum",
+        "Firming Eye Cream",
+        "Collagen Booster"
+      ]
+    };
+
+    document.getElementById('skinForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const selected = [...document.querySelectorAll('input[name="concerns"]:checked')]
+        .map(input => input.value);
+
+      if(selected.length === 0) {
+        alert("Please select at least one skin concern.");
+        return;
+      }
+
+      let recommendationsHTML = "<h3>Recommended Products:</h3><ul>";
+
+      // Collect unique product recommendations
+      const recommendedProducts = new Set();
+
+      selected.forEach(concern => {
+        productRecommendations[concern].forEach(product => recommendedProducts.add(product));
+      });
+
+      recommendedProducts.forEach(product => {
+        recommendationsHTML += `<li>${product}</li>`;
+      });
+
+      recommendationsHTML += "</ul>";
+
+      document.getElementById('recommendations').innerHTML = recommendationsHTML;
+    });
+  </script>
 </body>
 </html>
